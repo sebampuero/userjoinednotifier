@@ -6,7 +6,7 @@
 
     <groupId>de.sebampuerom</groupId>
     <artifactId>UserJoinedNotifier</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>UserJoinedNotifier</name>

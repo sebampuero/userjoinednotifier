@@ -1,3 +1,5 @@
+version: 1
+serverName: "myserverName"
 messages:
   email:
     subject: "User {username} has joined your server {servername}"
@@ -6,6 +8,8 @@ time:
   datetime-format: "yyyy-MM-dd HH:mm:ss"
 notification:
   email:
+    enabled: "true"
+    passwordFromEnv: "true" # load password for authentication from env var by default, if false use field below
     server: "IMAP"
     serverAddress: "smtp.myserver.com"
     port: "465"

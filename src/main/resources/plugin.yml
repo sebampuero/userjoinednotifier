@@ -1,0 +1,8 @@
+name: UserJoinedNotifier
+version: '1.0-SNAPSHOT'
+main: de.sebampuerom.userJoinedNotifier.UserJoinedNotifier
+api-version: '1.21'
+prefix: sebamp
+authors: [ Sebastian Ampuero ]
+description: Plugin that notifies whenever a user joined
+website: sebampuerom.de

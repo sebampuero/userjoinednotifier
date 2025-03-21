@@ -1,0 +1,14 @@
+messages:
+  email:
+    subject: "User {username} has joined your server {servername}"
+    content: "A user with name {username} has joined your server on {datetime} at coordinates {coords}"
+time:
+  datetime-format: "yyyy-MM-dd HH:mm:ss"
+notification:
+  email:
+    server: "IMAP"
+    serverAddress: "smtp.myserver.com"
+    port: "465"
+    username: "myusername"
+    password: "mypassword"
+# room for other systems configuration

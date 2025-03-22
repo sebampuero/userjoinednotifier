@@ -10,6 +10,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -30,7 +32,8 @@ public class PlayerJoinListener implements Listener {
         String username = player.getName();
         String serverName = config.getConfig().getString("serverName");
         String coordinates = "X:" + location.getBlockX() + " Z:" + location.getBlockZ();
-        NotificationFactory notificationFactory = new NotificationFactory(config, new NotificationFields(username, serverName, coordinates));
+        ZonedDateTime zonedDatetime = ZonedDateTime.now(ZoneId.of(config.getConfig().getString("time.zone")));
+        NotificationFactory notificationFactory = new NotificationFactory(config, new NotificationFields(username, serverName, coordinates, zonedDatetime));
         List<Notification> notifications = notificationFactory.createNotifications();
         executorService = Executors.newCachedThreadPool();
         for(Notification notification : notifications) {

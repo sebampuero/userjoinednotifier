@@ -3,6 +3,7 @@ package de.sebampuerom.userJoinedNotifier.notification;
 import de.sebampuerom.userJoinedNotifier.UserJoinedNotifier;
 import de.sebampuerom.userJoinedNotifier.config.Config;
 import de.sebampuerom.userJoinedNotifier.exceptions.EnvironmentVariableNotDefinedException;
+import de.sebampuerom.userJoinedNotifier.formatting.Time;
 import jakarta.mail.Authenticator;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.mail.internet.InternetAddress;
@@ -52,6 +53,8 @@ public class EmailNotification extends Notification{
 
     private void parseSubjectAndContent(Config config){
         HashMap<String, String> placeholders = new HashMap<>();
+        String timeFormat = config.getConfig().getString("time.datetime-format");
+        placeholders.put("datetime", Time.formatTime(fields.getDateTime(), timeFormat));
         placeholders.put("username", fields.getUsername());
         placeholders.put("servername", fields.getServerName());
         placeholders.put("coords", fields.getCoordinates());

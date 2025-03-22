@@ -1,5 +1,6 @@
 package de.sebampuerom.userJoinedNotifier.config;
 
+import lombok.Getter;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -10,27 +11,26 @@ import java.util.regex.Pattern;
 
 public class Config {
 
+    @Getter
     private YamlConfiguration config;
 
     public static final String CONFIG_FILENAME = "config.yml";
     public static final String CONFIG_DEFAULT_FILENAME = "config-default.yml";
+    private File dataFolder;
 
-    public Config(){
+    public Config(File dataFolder){
+        this.dataFolder = dataFolder;
         loadConfig();
     }
 
     private void loadConfig(){
         if(configPresent()){
-            config = YamlConfiguration.loadConfiguration(new File(CONFIG_FILENAME));
+            config = YamlConfiguration.loadConfiguration(new File(dataFolder, CONFIG_FILENAME));
         }
     }
 
     public boolean configPresent(){
-        return new File(CONFIG_FILENAME).exists();
-    }
-
-    public YamlConfiguration getConfig() {
-        return this.config;
+        return new File(dataFolder, CONFIG_FILENAME).exists();
     }
 
     public void saveConfiguration(JavaPlugin plugin, String configFileName){

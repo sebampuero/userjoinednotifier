@@ -37,7 +37,7 @@ public class EmailNotification extends Notification{
         if(config.getConfig().getBoolean(emailPrefix + "loadFromEnv.enabled")){
             String passwordEnvVarKey = config.getConfig().getString(emailPrefix + "loadFromEnv.key");
             String envVar = System.getenv(passwordEnvVarKey);
-            if(envVar == null) throw new EnvironmentVariableNotDefinedException(passwordEnvVarKey + " does not exist in the system!");
+            if(envVar == null || envVar.isEmpty()) throw new EnvironmentVariableNotDefinedException(passwordEnvVarKey + " does not exist in the system!");
             this.password = envVar;
         }else {
             this.password = config.getConfig().getString(emailPrefix + "password");

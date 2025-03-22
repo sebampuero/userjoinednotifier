@@ -6,7 +6,7 @@ messages:
     content: "A user with name {username} has joined your server on {datetime} at coordinates {coords}"
 time:
   datetime-format: "yyyy-MM-dd HH:mm:ss"
-  zone: "Berlin/Germany"
+  zone: "Europe/Berlin"
 notification:
   email:
     recipients: # add your recipients

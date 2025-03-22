@@ -8,11 +8,16 @@ time:
   datetime-format: "yyyy-MM-dd HH:mm:ss"
 notification:
   email:
+    recipients: # add your recipients
+      - "recipient@email.com"
+      - "recipient2@email.com"
+    from: "fromme@email.com" # edit the sender
     enabled: "true"
-    passwordFromEnv: "true" # load password for authentication from env var by default, if false use field below
-    server: "IMAP"
+    loadFromEnv:
+      enabled: "true"
+      key: "SMTP_PASSWORD" # load password for authentication from env var by default, if false use field below. Recommended usage!
     serverAddress: "smtp.myserver.com"
-    port: "465"
+    port: 465
     username: "myusername"
     password: "mypassword"
 # room for other systems configuration

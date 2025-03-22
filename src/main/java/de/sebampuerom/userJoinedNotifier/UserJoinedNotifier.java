@@ -9,6 +9,7 @@ public final class UserJoinedNotifier extends JavaPlugin {
 
     public final Logger logger = this.getLogger();
     public final Config config = new Config();
+    public static final String NAME = "UserJoinedNotifier";
 
     @Override
     public void onEnable() {
@@ -28,6 +29,5 @@ public final class UserJoinedNotifier extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        logger.info("Disabled!");
     }
 }
